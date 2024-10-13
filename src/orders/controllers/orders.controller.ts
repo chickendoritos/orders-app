@@ -1,0 +1,52 @@
+import { Body, Controller, Delete, Post, Put } from '@nestjs/common';
+import {
+  CreateOrderInput,
+  OrdersService,
+  UpdateOrderInput,
+  UpdateOrderStatusInput,
+} from '@ordersApp/orders';
+
+// What are storefronts? Are they simply listings on the websites that supply us?
+// Is this api facing customers?
+// Storefronts are websites that are customer facing and then storefront calls us to create an order?
+
+// Code written below is for other APIs to call, not customer facing. (not a website we host for example)
+// If customer facing, then use an auth guard with CurrentUser decorator and use OmitType for the input.
+
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly ordersService: OrdersService) {}
+
+  // Get order?
+  // Get orders?
+
+  @Post()
+  // TODO: api key guard
+  async createOrder(@Body() input: CreateOrderInput): Promise<string> {
+    await this.ordersService.createOrder(input);
+    return 'order created';
+  }
+
+  @Put()
+  // TODO: api key guard
+  // customers arent allowed to update order. api request from storefront i guess?
+  async updateOrder(@Body() input: UpdateOrderInput): Promise<string> {
+    await this.ordersService.updateOrder(input);
+    return 'order updated';
+  }
+
+  @Put('/status')
+  // TODO: api key guard
+  // customers arent allowed to update order status. api request from storefront i guess?
+  async updateOrderStatus(
+    @Body() input: UpdateOrderStatusInput,
+  ): Promise<string> {
+    await this.ordersService.updateOrderStatus(input);
+    return 'order status updated';
+  }
+
+  @Delete()
+  deleteOrder(): string {
+    return 'order deleted';
+  }
+}

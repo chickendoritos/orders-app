@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@ordersApp/orders": ["libs/orders/src"],
+      "@ordersApp/orders/*": ["libs/orders/src/*"],
+      "@ordersApp/seedwork": ["libs/seedwork/src"],
+      "@ordersApp/seedwork/*": ["libs/seedwork/src/*"],
+      "@ordersApp/inventory": ["libs/inventory/src"],
+      "@ordersApp/inventory/*": ["libs/inventory/src/*"],
+      "@ordersApp/customers": ["libs/customers/src"],
+      "@ordersApp/customers/*": ["libs/customers/src/*"]
+    }
+  }
+}
