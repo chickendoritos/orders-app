@@ -1,5 +1,12 @@
 Note: My thoughts and questions are commented throughout the code, mostly in the OrdersService.
 
+## File structure
+
+```
+/src contains the orders api with controller
+/libs contains any business logic for orders, inventory, and customers
+```
+
 ### Requirements
 
 ```bash
@@ -17,6 +24,8 @@ $ yarn install
 ```bash
 $ yarn run start
 ```
+
+App should be listening on http://localhost:3000
 
 ## Infra Solutions
 
