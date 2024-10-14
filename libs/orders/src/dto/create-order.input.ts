@@ -1,4 +1,5 @@
 export class CreateOrderInput {
+  storefrontId: number;
   userId: number;
   products: OrderProductInput[];
 }

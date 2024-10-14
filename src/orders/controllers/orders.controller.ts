@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Post, Put } from '@nestjs/common';
 import {
-  CreateOrderInput,
   OrdersService,
   UpdateOrderInput,
   UpdateOrderStatusInput,
 } from '@ordersApp/orders';
+import { CreateOrderDto } from '../dto';
 
 // What are storefronts? Are they simply listings on the websites that supply us?
 // Is this api facing customers?
@@ -22,8 +22,12 @@ export class OrdersController {
 
   @Post()
   // TODO: api key guard. use nestjs passport?
-  async createOrder(@Body() input: CreateOrderInput): Promise<string> {
-    await this.ordersService.createOrder(input);
+  async createOrder(@Body() input: CreateOrderDto): Promise<string> {
+    const storefrontId = 1; // get storefrontId from apikey
+    await this.ordersService.createOrder({
+      ...input,
+      storefrontId,
+    });
     return 'order created';
   }
 
