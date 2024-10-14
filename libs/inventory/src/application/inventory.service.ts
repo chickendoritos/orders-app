@@ -10,7 +10,9 @@ export class InventoryService {
     // use fetch() to talk to inventory api
   }
 
-  async updateQuantity(): Promise<void> {}
+  async updateQuantity(): Promise<void> {
+    // push to queue/event for inventory service to consume
+  }
 
   async checkQuantity(): Promise<void> {}
 }
