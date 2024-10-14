@@ -21,14 +21,14 @@ export class OrdersController {
   // Get orders?
 
   @Post()
-  // TODO: api key guard
+  // TODO: api key guard. use nestjs passport?
   async createOrder(@Body() input: CreateOrderInput): Promise<string> {
     await this.ordersService.createOrder(input);
     return 'order created';
   }
 
   @Put()
-  // TODO: api key guard
+  // TODO: api key guard. use nestjs passport?
   // customers arent allowed to update order. api request from storefront i guess?
   async updateOrder(@Body() input: UpdateOrderInput): Promise<string> {
     await this.ordersService.updateOrder(input);
@@ -36,7 +36,7 @@ export class OrdersController {
   }
 
   @Put('/status')
-  // TODO: api key guard
+  // TODO: api key guard. use nestjs passport?
   // customers arent allowed to update order status. api request from storefront i guess?
   async updateOrderStatus(
     @Body() input: UpdateOrderStatusInput,
