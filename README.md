@@ -49,7 +49,7 @@ Depending on budget and level of availability needed, we can spread the microser
 
 <p>I generally do not advise always running APIs to use lambda as you will end up paying idle costs and lambda CPU costs are generally higher. If the service does not need to be always running then Lambda can be considered.</p>
 
-<p>Note: Both solutions would use Route53, Cloudfront, and RDS. DynamoDB can be considered sometimes for quick lookups, but I generally prefer SQL databases.</p>
+<p>Note: Both solutions would use Route53, Cloudfront, and RDS. DynamoDB can be considered sometimes for quick lookups, but I generally prefer SQL databases. If the OrdersService is decoupled from other services then having its own DB can be considered.</p>
 
 <p>Another note: For both solutions, if subscribing to a topic or polling a queue, then we can include SQS/EventBridge</p>
 
